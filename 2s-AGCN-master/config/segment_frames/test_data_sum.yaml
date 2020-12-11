@@ -1,0 +1,26 @@
+# feeder
+feeder: feeders.feeder.Feeder
+test_feeder_args:
+  data_path: ../input/M2D_segment_frames/test_data.npy
+  label_path: ../input/M2D_segment_frames/test_label.pkl
+  debug: False
+
+# model
+model: model.agcn.Model
+model_args:
+  num_class: 4
+  num_point: 23
+  num_person: 1
+  graph: graph.m2d.Graph
+  graph_args:
+    labeling_mode: 'spatial'
+
+# test
+phase: test
+device: [0]
+test_batch_size: 46
+weights: ./runs/m2d_segment_sum-99-300.pt
+
+work_dir: ./work_dir/m2d_segment/m2d_test_data_sum
+model_saved_name: ./runs/m2d_segment/m2d_test_data_sum
+save_score: True

@@ -1,0 +1,39 @@
+work_dir: ./work_dir/m2d_segment/m2d_data_sum
+model_saved_name: ./runs/m2d_segment_sum
+# feeder
+feeder: feeders.feeder.Feeder
+train_feeder_args:
+  data_path: ../../input/M2D_segment_frames/train_data.npy
+  label_path: ../../input/M2D_segment_frames/train_label.pkl
+  debug: False
+  random_choose: False
+  random_shift: False
+  random_move: False
+  window_size: -1
+  normalization: False
+
+test_feeder_args:
+  data_path: ../../input/M2d_segment_frames/val_data.npy
+  label_path: ../../input/M2D_segment_frames/val_label.pkl
+
+# model
+model: model.agcn.Model
+model_args:
+  num_class: 4
+  num_point: 23
+  num_person: 1
+  graph: graph.m2d.Graph
+  graph_args:
+    labeling_mode: 'spatial'
+
+#optim
+weight_decay: 0.0001
+base_lr: 0.1
+step: [30, 40]
+
+# training
+device: [0]
+batch_size: 15
+test_batch_size: 45
+num_epoch: 100
+nesterov: True
