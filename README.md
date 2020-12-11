@@ -12,11 +12,11 @@ This work proposes a deep music recommendation algorithm based on dance motion a
 ## Training & Testing
 
 ### LSTM-AE
-`cd m2m/DWM/run/`\
+`cd DWM/run/`\
 change the 'is_train' depending on what you want\
 `python train.py`
 ### Motion-Analysis
-`cd m2m/2s-AGCN-master/`\
+`cd hmmr/`\
 change model.agcn.__init__() in_channels=3\
 `python main.py --config ./config/segment_frames/train_joint.yaml`
 `python main.py --config ./config/segment_frames/train_bone.yaml`
@@ -31,9 +31,9 @@ change model.agcn.__init__() in_channels=6\
 `python ensemble.py`
 ## Show result
 ### LSTM-AE
-`cd m2m/DWM/run/`\
+`cd DWM/run/`\
 `python classify.py`\
 `python classify_single.py`
 ### Motion-Analysis
-`cd m2m/2s-AGCN-master/`\
+`cd hmmr/`\
 `python confusion_matrix.py`
