@@ -1,4 +1,4 @@
-# Code for the "A Deep Music Recommendation Method based on Human Motion Analysis"
+# Code and experiments for the method proposed in "A Deep Music Recommendation Method based on Human Motion Analysis"
 This work proposes a deep music recommendation algorithm based on dance motion analysis and a LSTM-AE based method which learns the correspondences between motion and music.
 ## Dependencies
 1.pytorch\
@@ -29,11 +29,11 @@ change model.agcn.__init__() in_channels=3\
 change model.agcn.__init__() in_channels=6\
 `python main.py --config ./config/segment_frames/test_data_sum.yaml`\
 `python ensemble.py`
-## Show result
-### LSTM-AE
+## Show results
+### Show results for the LSTM-AE based experiments
 `cd DWM/run/`\
 `python classify.py`\
 `python classify_single.py`
-### Motion-Analysis
+### Show results for the Motion-Analysis based experiments
 `cd hmmr/`\
 `python confusion_matrix.py`
